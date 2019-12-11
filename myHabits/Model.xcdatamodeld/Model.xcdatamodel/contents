@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G8030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Habit" representedClassName=".Habit" syncable="YES" codeGenerationType="category">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="repition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repetition" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Habit" positionX="-343.6953125" positionY="-35.6953125" width="128" height="90"/>
+        <element name="Habit" positionX="-343.6953125" positionY="-35.6953125" width="128" height="105"/>
     </elements>
 </model>

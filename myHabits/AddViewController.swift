@@ -14,6 +14,15 @@ class AddViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var repetitionChoice: UISegmentedControl!
+    @IBAction func addHabit(_ sender: UIButton) {
+        let habit = Habit(context: AppDelegate.viewContext)
+        habit.name = nameTextField.text
+        habit.desc = descTextField.text
+        habit.category = "\(Category.allCases[picker.selectedRow(inComponent: 0)])"
+        habit.repetition = repetitionChoice.titleForSegment(at: repetitionChoice.selectedSegmentIndex)
+        try? AppDelegate.viewContext.save()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
