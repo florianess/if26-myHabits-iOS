@@ -8,11 +8,26 @@
 
 import UIKit
 
+class HabitTableViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var categorieLabel: UILabel!
+    @IBOutlet weak var repetitionLabel: UILabel!
+    @IBOutlet weak var doneSwitch: UISwitch!
+    
+}
+
 class HabitsViewController: UITableViewController {
+    
+    var categoriesColor: [String : UIColor] = [
+        "Sport": UIColor(red: CGFloat(0.8), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Relaxation":UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Cours":UIColor(red: CGFloat(0.1), green: CGFloat(0.4), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Rangement": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Habit.all)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,13 +45,18 @@ class HabitsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Habit.all.count
+        return Habit.today.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath)
-        cell.textLabel?.text = Habit.all[indexPath.row].name
-        cell.detailTextLabel?.text = Habit.all[indexPath.row].desc
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath) as! HabitTableViewCell
+        let habit = Habit.today[indexPath.row]
+        cell.titleLabel?.text = habit.name
+        cell.descLabel?.text = habit.desc
+        cell.categorieLabel?.text = habit.category
+        cell.repetitionLabel?.text = habit.repetitionLabel
+        cell.doneSwitch?.isOn = habit.isDone
+        cell.backgroundColor = categoriesColor[habit.category ?? ""]
 
         return cell
     }
