@@ -17,13 +17,14 @@ class AddViewController: UIViewController {
     @IBOutlet weak var repetitionChoice: UISegmentedControl!
     
     @IBAction func addHabit(_ sender: UIButton) {
+        
         let habit = Habit(context: AppDelegate.viewContext)
+        
         habit.name = nameTextField.text
         habit.desc = descTextField.text
         habit.category = "\(Category.allCases[picker.selectedRow(inComponent: 0)])"
         let repetition = repetitionChoice.titleForSegment(at: repetitionChoice.selectedSegmentIndex)
         habit.repetitionLabel = repetition
-        habit.isDone = false
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.weekday, .day, .month], from: date)
@@ -35,6 +36,10 @@ class AddViewController: UIViewController {
         } else {
             habit.repetition = "every"
         }
+        
+        let currentWeek = WeekHabits.currentWeek
+        currentWeek.totalHabits![components.weekday!] =  currentWeek.totalHabits![components.weekday!] + 1
+        
         try? AppDelegate.viewContext.save()
     }
     override func viewDidLoad() {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B80713B9239FDB8C00C19C22 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80713B8239FDB8C00C19C22 /* Habit.swift */; };
 		B83688C223A0FED700D9DFFB /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83688C123A0FED700D9DFFB /* HabitsViewController.swift */; };
+		B858D2FC23A3CEDA00758E2C /* WeekHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858D2FB23A3CEDA00758E2C /* WeekHabits.swift */; };
+		B858D2FE23A3D6CE00758E2C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858D2FD23A3D6CE00758E2C /* StatsViewController.swift */; };
 		B86A6BCE239E693A004AFC5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86A6BCD239E693A004AFC5F /* AppDelegate.swift */; };
 		B86A6BD5239E693A004AFC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86A6BD3239E693A004AFC5F /* Main.storyboard */; };
 		B86A6BD7239E693B004AFC5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86A6BD6239E693B004AFC5F /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		B80713B8239FDB8C00C19C22 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		B83688C123A0FED700D9DFFB /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		B858D2FB23A3CEDA00758E2C /* WeekHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHabits.swift; sourceTree = "<group>"; };
+		B858D2FD23A3D6CE00758E2C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		B86A6BCA239E693A004AFC5F /* myHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86A6BCD239E693A004AFC5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86A6BD4239E693A004AFC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,8 +68,10 @@
 			children = (
 				B875D879239FD46E00F80090 /* Model.xcdatamodeld */,
 				B80713B8239FDB8C00C19C22 /* Habit.swift */,
+				B858D2FB23A3CEDA00758E2C /* WeekHabits.swift */,
 				B86A6BCD239E693A004AFC5F /* AppDelegate.swift */,
 				B86A6BD3239E693A004AFC5F /* Main.storyboard */,
+				B858D2FD23A3D6CE00758E2C /* StatsViewController.swift */,
 				B83688C123A0FED700D9DFFB /* HabitsViewController.swift */,
 				B8C15346239FDEB600D21444 /* AddViewController.swift */,
 				B8C15348239FEA0D00D21444 /* Category.swift */,
@@ -150,9 +156,11 @@
 			files = (
 				B80713B9239FDB8C00C19C22 /* Habit.swift in Sources */,
 				B83688C223A0FED700D9DFFB /* HabitsViewController.swift in Sources */,
+				B858D2FE23A3D6CE00758E2C /* StatsViewController.swift in Sources */,
 				B86A6BCE239E693A004AFC5F /* AppDelegate.swift in Sources */,
 				B8C15347239FDEB600D21444 /* AddViewController.swift in Sources */,
 				B875D87B239FD46E00F80090 /* Model.xcdatamodeld in Sources */,
+				B858D2FC23A3CEDA00758E2C /* WeekHabits.swift in Sources */,
 				B8C15349239FEA0D00D21444 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

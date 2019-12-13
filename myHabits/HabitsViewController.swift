@@ -21,14 +21,18 @@ class HabitsViewController: UITableViewController {
     
     var categoriesColor: [String : UIColor] = [
         "Sport": UIColor(red: CGFloat(0.8), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Relaxation":UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Cours":UIColor(red: CGFloat(0.1), green: CGFloat(0.4), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Relaxation": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Cours": UIColor(red: CGFloat(0.1), green: CGFloat(0.4), blue: CGFloat(0.8), alpha: CGFloat(1)),
         "Rangement": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(leftSwipe)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,6 +41,10 @@ class HabitsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -55,7 +63,6 @@ class HabitsViewController: UITableViewController {
         cell.descLabel?.text = habit.desc
         cell.categorieLabel?.text = habit.category
         cell.repetitionLabel?.text = habit.repetitionLabel
-        cell.doneSwitch?.isOn = habit.isDone
         cell.backgroundColor = categoriesColor[habit.category ?? ""]
 
         return cell

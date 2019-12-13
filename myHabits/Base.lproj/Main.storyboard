@@ -69,12 +69,14 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Aoe-zD-OEb" secondAttribute="bottom" id="vlB-Ux-IsB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="categorieLabel" destination="dQY-8j-miY" id="7aC-hO-Ilo"/>
                                     <outlet property="descLabel" destination="eLq-Ua-sMK" id="mkO-yO-Nkx"/>
                                     <outlet property="doneSwitch" destination="I5t-Jh-zSV" id="mbJ-Od-jPQ"/>
                                     <outlet property="repetitionLabel" destination="Aoe-zD-OEb" id="ZBs-G9-FFz"/>
                                     <outlet property="titleLabel" destination="Wvv-UV-cYW" id="KBt-4W-qdj"/>
+                                    <outletCollection property="gestureRecognizers" destination="Fho-ka-96z" appends="YES" id="ouw-kZ-A5L"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -92,19 +94,20 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqV-2X-6RA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Fho-ka-96z"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-320.08928571428572"/>
         </scene>
         <!--Statistique-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="StatsViewController" customModule="myHabits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Semaine 32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-G4-Fwi">
-                                <rect key="frame" x="155" y="138" width="104" height="24"/>
+                                <rect key="frame" x="155" y="126" width="104" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -115,6 +118,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Statistique" id="lya-pe-AjY"/>
+                    <connections>
+                        <outlet property="weekLabel" destination="fQY-G4-Fwi" id="IXk-kO-cby"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +206,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addHabit:" destination="MJr-YI-63i" eventType="touchUpInside" id="qrm-Xn-Pw5"/>
-                                    <segue destination="cma-o9-tFI" kind="show" id="PLa-mh-uJU"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6F-oZ-6RT">
@@ -232,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pe-mf-YXA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2630" y="-320"/>
+            <point key="canvasLocation" x="2628.985507246377" y="-320.08928571428572"/>
         </scene>
         <!--Accueil-->
         <scene sceneID="FdD-Wp-6u2">
@@ -277,8 +282,4 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="r6k-Rj-AIS"/>
-        <segue reference="PLa-mh-uJU"/>
-    </inferredMetricsTieBreakers>
 </document>
