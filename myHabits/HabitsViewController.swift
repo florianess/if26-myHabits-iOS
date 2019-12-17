@@ -23,8 +23,10 @@ class HabitsViewController: UITableViewController {
         "Sport": UIColor(red: CGFloat(0.8), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
         "Relaxation": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
         "Cours": UIColor(red: CGFloat(0.1), green: CGFloat(0.4), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Rangement": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Rangement": UIColor(red: CGFloat(0.5), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
     ]
+    
+    var habits: [Habit] = Habit.today
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,22 +45,25 @@ class HabitsViewController: UITableViewController {
     // MARK: - Table view data source
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        
+        print("SWIPE TODO")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        habits = Habit.today
+        self.tableView.reloadData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return Habit.today.count
+        return habits.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath) as! HabitTableViewCell
-        let habit = Habit.today[indexPath.row]
+        let habit = habits[indexPath.row]
         cell.titleLabel?.text = habit.name
         cell.descLabel?.text = habit.desc
         cell.categorieLabel?.text = habit.category

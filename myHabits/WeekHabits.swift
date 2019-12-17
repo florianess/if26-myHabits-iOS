@@ -22,7 +22,7 @@ class WeekHabits: NSManagedObject {
             let currentWeekHabits = WeekHabits(context: AppDelegate.viewContext)
             currentWeekHabits.weekNumber = weekNumber
             currentWeekHabits.totalHabits = [0,0,0,0,0,0,0]
-            currentWeekHabits.habitsDone = [0,0,0,0,0,0,0]
+            currentWeekHabits.habitsDone = ["","","","","","",""]
             try? AppDelegate.viewContext.save()
             return currentWeekHabits
         }

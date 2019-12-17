@@ -16,8 +16,7 @@ class AddViewController: UIViewController {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var repetitionChoice: UISegmentedControl!
     
-    @IBAction func addHabit(_ sender: UIButton) {
-        
+    @IBAction func addHabit(_ sender: UIButton) {        
         let habit = Habit(context: AppDelegate.viewContext)
         
         habit.name = nameTextField.text
@@ -39,8 +38,8 @@ class AddViewController: UIViewController {
         
         let currentWeek = WeekHabits.currentWeek
         currentWeek.totalHabits![components.weekday!] =  currentWeek.totalHabits![components.weekday!] + 1
-        
         try? AppDelegate.viewContext.save()
+        _ = navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

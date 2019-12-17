@@ -8,7 +8,7 @@
         <attribute name="repetitionLabel" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="WeekHabits" representedClassName=".WeekHabits" syncable="YES" codeGenerationType="category">
-        <attribute name="habitsDone" optional="YES" attributeType="Transformable" customClassName="[Double]" syncable="YES"/>
+        <attribute name="habitsDone" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
         <attribute name="totalHabits" optional="YES" attributeType="Transformable" customClassName="[Double]" syncable="YES"/>
         <attribute name="weekNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>

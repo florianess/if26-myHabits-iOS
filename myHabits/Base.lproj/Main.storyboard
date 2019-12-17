@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Aujourd'hui-->
+        <!--< Aujourd'hui >-->
         <scene sceneID="giE-aL-KfJ">
             <objects>
                 <tableViewController id="cma-o9-tFI" customClass="HabitsViewController" customModule="myHabits" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                             <outlet property="delegate" destination="cma-o9-tFI" id="nyE-Iz-D7x"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Aujourd'hui" id="Y7H-sk-WyK" customClass="Ha">
+                    <navigationItem key="navigationItem" title="&lt; Aujourd'hui &gt;" id="Y7H-sk-WyK" customClass="Ha">
                         <barButtonItem key="rightBarButtonItem" title="Ajouter" id="YwR-qq-L3M">
                             <connections>
                                 <segue destination="MJr-YI-63i" kind="show" id="r6k-Rj-AIS"/>
