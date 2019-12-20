@@ -37,7 +37,7 @@ class AddViewController: UIViewController {
         }
         
         let currentWeek = WeekHabits.currentWeek
-        currentWeek.totalHabits![components.weekday!] =  currentWeek.totalHabits![components.weekday!] + 1
+        currentWeek.totalHabits![components.weekday!-1] =  currentWeek.totalHabits![components.weekday!-1] + 1
         try? AppDelegate.viewContext.save()
         _ = navigationController?.popViewController(animated: true)
     }

@@ -14,6 +14,23 @@ class HabitTableViewCell: UITableViewCell {
     @IBOutlet weak var categorieLabel: UILabel!
     @IBOutlet weak var repetitionLabel: UILabel!
     @IBOutlet weak var doneSwitch: UISwitch!
+    @IBAction func onSwitch(_ sender: UISwitch) {
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        let todayHabitsDoneStr = WeekHabits.currentWeek.habitsDone?[components.weekday! - 1]
+        var todayHabitsDone = todayHabitsDoneStr?.components(separatedBy: ",")
+        if ((todayHabitsDone?.contains(titleLabel.text ?? "w") ?? false) && !sender.isOn) {
+            let updateHabitsDone = todayHabitsDone?.filter({ (habitName) -> Bool in
+                habitName != titleLabel.text
+            });
+            WeekHabits.currentWeek.habitsDone?[components.weekday! - 1] = updateHabitsDone?.joined(separator: ",") ?? ""
+        } else {
+            todayHabitsDone?.append(titleLabel?.text ?? "")
+            WeekHabits.currentWeek.habitsDone?[components.weekday! - 1] = todayHabitsDone?.joined(separator: ",") ?? ""
+        }
+        try? AppDelegate.viewContext.save()
+    }
     
 }
 
@@ -26,8 +43,9 @@ class HabitsViewController: UITableViewController {
         "Rangement": UIColor(red: CGFloat(0.5), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
     ]
     
-    var habits: [Habit] = Habit.today
-
+    var habits: [Habit] = Habit.selectedHabits(cursor: Date())
+    var cursor = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
@@ -45,11 +63,21 @@ class HabitsViewController: UITableViewController {
     // MARK: - Table view data source
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        print("SWIPE TODO")
+        if (sender.direction == UISwipeGestureRecognizer.Direction.left) {
+            cursor = Calendar.current.date(byAdding: .day, value: 1, to: cursor)!
+        } else {
+            cursor = Calendar.current.date(byAdding: .day, value: -1, to: cursor)!
+        }
+        habits = Habit.selectedHabits(cursor: cursor)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM"
+        self.tableView.reloadData()
+    
+    self.navigationItem.title = formatter.string(from: cursor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        habits = Habit.today
+        habits = Habit.selectedHabits(cursor: Date())
         self.tableView.reloadData()
     }
 
@@ -69,7 +97,14 @@ class HabitsViewController: UITableViewController {
         cell.categorieLabel?.text = habit.category
         cell.repetitionLabel?.text = habit.repetitionLabel
         cell.backgroundColor = categoriesColor[habit.category ?? ""]
-
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        let todayHabitsDoneStr = WeekHabits.currentWeek.habitsDone?[components.weekday! - 1]
+        let todayHabitsDone = todayHabitsDoneStr?.components(separatedBy: ",")
+        if (todayHabitsDone?.contains(habit.name ?? "w") ?? false) {
+            cell.doneSwitch.setOn(true, animated: false)
+        }
         return cell
     }
 

@@ -17,6 +17,7 @@ class WeekHabits: NSManagedObject {
             return week.weekNumber == weekNumber
         })
         if (current.count == 1) {
+            print(current[0])
             return current[0]
         } else {
             let currentWeekHabits = WeekHabits(context: AppDelegate.viewContext)
