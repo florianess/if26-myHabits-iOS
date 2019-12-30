@@ -19,6 +19,7 @@ class AddViewController: UIViewController {
     @IBAction func addHabit(_ sender: UIButton) {        
         let habit = Habit(context: AppDelegate.viewContext)
         
+
         habit.name = nameTextField.text
         habit.desc = descTextField.text
         habit.category = "\(Category.allCases[picker.selectedRow(inComponent: 0)])"
@@ -36,8 +37,12 @@ class AddViewController: UIViewController {
             habit.repetition = "every"
         }
         
-        let currentWeek = WeekHabits.currentWeek
-        currentWeek.totalHabits![components.weekday!-1] =  currentWeek.totalHabits![components.weekday!-1] + 1
+        let currentWeek = WeekHabits.selectWeek(cursor: Date())
+        if (repetition == "Quotidien") {
+            currentWeek.totalHabits = currentWeek.totalHabits?.map { $0 + Double(1) }
+        } else {
+            currentWeek.totalHabits![components.weekday!-1] =  currentWeek.totalHabits![components.weekday!-1] + 1
+        }
         try? AppDelegate.viewContext.save()
         _ = navigationController?.popViewController(animated: true)
     }

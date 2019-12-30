@@ -14,22 +14,35 @@ class HabitTableViewCell: UITableViewCell {
     @IBOutlet weak var categorieLabel: UILabel!
     @IBOutlet weak var repetitionLabel: UILabel!
     @IBOutlet weak var doneSwitch: UISwitch!
+    var cursor = Date()
+    var weekHabits = WeekHabits.selectWeek(cursor: Date())
+    weak var view: HabitsViewController!
+    
     @IBAction func onSwitch(_ sender: UISwitch) {
-        let date = Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
-        let todayHabitsDoneStr = WeekHabits.currentWeek.habitsDone?[components.weekday! - 1]
-        var todayHabitsDone = todayHabitsDoneStr?.components(separatedBy: ",")
-        if ((todayHabitsDone?.contains(titleLabel.text ?? "w") ?? false) && !sender.isOn) {
-            let updateHabitsDone = todayHabitsDone?.filter({ (habitName) -> Bool in
-                habitName != titleLabel.text
-            });
-            WeekHabits.currentWeek.habitsDone?[components.weekday! - 1] = updateHabitsDone?.joined(separator: ",") ?? ""
+        if (cursor > Date()) {
+            let alertController = UIAlertController(title: "Attention", message: "Vous ne pouvez pas valider une habitude dans le futur", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+                print("You've pressed default");
+            }
+            alertController.addAction(action1)
+            view.present(alertController, animated: true, completion: nil)
+            sender.isOn = false
         } else {
-            todayHabitsDone?.append(titleLabel?.text ?? "")
-            WeekHabits.currentWeek.habitsDone?[components.weekday! - 1] = todayHabitsDone?.joined(separator: ",") ?? ""
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.weekday], from: cursor)
+            let todayHabitsDoneStr = weekHabits.habitsDone?[components.weekday! - 1]
+            var todayHabitsDone = todayHabitsDoneStr?.components(separatedBy: ",")
+            if ((todayHabitsDone?.contains(titleLabel.text ?? "xyz") ?? false) && !sender.isOn) {
+                let updateHabitsDone = todayHabitsDone?.filter({ (habitName) -> Bool in
+                    habitName != titleLabel.text
+                });
+                weekHabits.habitsDone?[components.weekday! - 1] = updateHabitsDone?.joined(separator: ",") ?? ""
+            } else {
+                todayHabitsDone?.append(titleLabel?.text ?? "")
+                weekHabits.habitsDone?[components.weekday! - 1] = todayHabitsDone?.joined(separator: ",") ?? ""
+            }
+            try? AppDelegate.viewContext.save()
         }
-        try? AppDelegate.viewContext.save()
     }
     
 }
@@ -44,6 +57,7 @@ class HabitsViewController: UITableViewController {
     ]
     
     var habits: [Habit] = Habit.selectedHabits(cursor: Date())
+    var weekHabits: WeekHabits = WeekHabits.selectWeek(cursor: Date())
     var cursor = Date()
     
     override func viewDidLoad() {
@@ -53,6 +67,7 @@ class HabitsViewController: UITableViewController {
         leftSwipe.direction = .left
         view.addGestureRecognizer(rightSwipe)
         view.addGestureRecognizer(leftSwipe)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -69,11 +84,16 @@ class HabitsViewController: UITableViewController {
             cursor = Calendar.current.date(byAdding: .day, value: -1, to: cursor)!
         }
         habits = Habit.selectedHabits(cursor: cursor)
+        weekHabits = WeekHabits.selectWeek(cursor: cursor)
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM"
+        formatter.locale = Locale(identifier: "fr_FR")
+        formatter.dateFormat = "E dd MMMM"
         self.tableView.reloadData()
-    
-    self.navigationItem.title = formatter.string(from: cursor)
+        if (Calendar.current.isDate(cursor, inSameDayAs: Date())) {
+            self.navigationItem.title = "Aujourd'hui"
+        } else {
+            self.navigationItem.title = formatter.string(from: cursor)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,12 +117,16 @@ class HabitsViewController: UITableViewController {
         cell.categorieLabel?.text = habit.category
         cell.repetitionLabel?.text = habit.repetitionLabel
         cell.backgroundColor = categoriesColor[habit.category ?? ""]
-        let date = Date()
+        cell.cursor = cursor
+        cell.weekHabits = weekHabits
+        cell.view = self
+        
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday], from: date)
-        let todayHabitsDoneStr = WeekHabits.currentWeek.habitsDone?[components.weekday! - 1]
+        let components = calendar.dateComponents([.weekday], from: cursor)
+        let todayHabitsDoneStr = weekHabits.habitsDone?[components.weekday! - 1]
         let todayHabitsDone = todayHabitsDoneStr?.components(separatedBy: ",")
-        if (todayHabitsDone?.contains(habit.name ?? "w") ?? false) {
+        cell.doneSwitch.setOn(false, animated: false)
+        if (todayHabitsDone?.contains(habit.name ?? "xyz") ?? false) {
             cell.doneSwitch.setOn(true, animated: false)
         }
         return cell

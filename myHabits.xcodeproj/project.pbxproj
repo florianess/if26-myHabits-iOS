@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3156E7520E481378D52EBB7B /* Pods_myHabits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062DB389B3873966C4018FCA /* Pods_myHabits.framework */; };
 		B80713B9239FDB8C00C19C22 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80713B8239FDB8C00C19C22 /* Habit.swift */; };
 		B83688C223A0FED700D9DFFB /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83688C123A0FED700D9DFFB /* HabitsViewController.swift */; };
 		B858D2FC23A3CEDA00758E2C /* WeekHabits.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858D2FB23A3CEDA00758E2C /* WeekHabits.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		062DB389B3873966C4018FCA /* Pods_myHabits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myHabits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56304FEEBE39AD6AA73CCA96 /* Pods-myHabits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHabits.release.xcconfig"; path = "Target Support Files/Pods-myHabits/Pods-myHabits.release.xcconfig"; sourceTree = "<group>"; };
 		B80713B8239FDB8C00C19C22 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		B83688C123A0FED700D9DFFB /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		B858D2FB23A3CEDA00758E2C /* WeekHabits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHabits.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		B875D87A239FD46E00F80090 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B8C15346239FDEB600D21444 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		B8C15348239FEA0D00D21444 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C74D229804A8383808BB83B9 /* Pods-myHabits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHabits.debug.xcconfig"; path = "Target Support Files/Pods-myHabits/Pods-myHabits.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3156E7520E481378D52EBB7B /* Pods_myHabits.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21E3C53DDD7B85B75851F30B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				062DB389B3873966C4018FCA /* Pods_myHabits.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B86A6BC1239E693A004AFC5F = {
 			isa = PBXGroup;
 			children = (
 				B86A6BCC239E693A004AFC5F /* myHabits */,
 				B86A6BCB239E693A004AFC5F /* Products */,
+				F48F60F02E9154A96D182A33 /* Pods */,
+				21E3C53DDD7B85B75851F30B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +97,16 @@
 			path = myHabits;
 			sourceTree = "<group>";
 		};
+		F48F60F02E9154A96D182A33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C74D229804A8383808BB83B9 /* Pods-myHabits.debug.xcconfig */,
+				56304FEEBE39AD6AA73CCA96 /* Pods-myHabits.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B86A6BDE239E693B004AFC5F /* Build configuration list for PBXNativeTarget "myHabits" */;
 			buildPhases = (
+				F21BDAB06AC47A05155C2BC1 /* [CP] Check Pods Manifest.lock */,
 				B86A6BC6239E693A004AFC5F /* Sources */,
 				B86A6BC7239E693A004AFC5F /* Frameworks */,
 				B86A6BC8239E693A004AFC5F /* Resources */,
+				C8E324498E1253737DD1A32B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8E324498E1253737DD1A32B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myHabits/Pods-myHabits-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myHabits/Pods-myHabits-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myHabits/Pods-myHabits-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F21BDAB06AC47A05155C2BC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myHabits-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B86A6BC6239E693A004AFC5F /* Sources */ = {
@@ -305,6 +374,7 @@
 		};
 		B86A6BDF239E693B004AFC5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C74D229804A8383808BB83B9 /* Pods-myHabits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -325,6 +395,7 @@
 		};
 		B86A6BE0239E693B004AFC5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56304FEEBE39AD6AA73CCA96 /* Pods-myHabits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
