@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216851F023BE623A00351C19 /* customXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216851EF23BE623A00351C19 /* customXAxis.swift */; };
 		3156E7520E481378D52EBB7B /* Pods_myHabits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062DB389B3873966C4018FCA /* Pods_myHabits.framework */; };
 		B80713B9239FDB8C00C19C22 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80713B8239FDB8C00C19C22 /* Habit.swift */; };
 		B83688C223A0FED700D9DFFB /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83688C123A0FED700D9DFFB /* HabitsViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		062DB389B3873966C4018FCA /* Pods_myHabits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myHabits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216851EF23BE623A00351C19 /* customXAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customXAxis.swift; sourceTree = "<group>"; };
 		56304FEEBE39AD6AA73CCA96 /* Pods-myHabits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHabits.release.xcconfig"; path = "Target Support Files/Pods-myHabits/Pods-myHabits.release.xcconfig"; sourceTree = "<group>"; };
 		B80713B8239FDB8C00C19C22 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		B83688C123A0FED700D9DFFB /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B86A6BCD239E693A004AFC5F /* AppDelegate.swift */,
 				B86A6BD3239E693A004AFC5F /* Main.storyboard */,
 				B858D2FD23A3D6CE00758E2C /* StatsViewController.swift */,
+				216851EF23BE623A00351C19 /* customXAxis.swift */,
 				B83688C123A0FED700D9DFFB /* HabitsViewController.swift */,
 				B8C15346239FDEB600D21444 /* AddViewController.swift */,
 				B8C15348239FEA0D00D21444 /* Category.swift */,
@@ -103,7 +106,6 @@
 				C74D229804A8383808BB83B9 /* Pods-myHabits.debug.xcconfig */,
 				56304FEEBE39AD6AA73CCA96 /* Pods-myHabits.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80713B9239FDB8C00C19C22 /* Habit.swift in Sources */,
+				216851F023BE623A00351C19 /* customXAxis.swift in Sources */,
 				B83688C223A0FED700D9DFFB /* HabitsViewController.swift in Sources */,
 				B858D2FE23A3D6CE00758E2C /* StatsViewController.swift in Sources */,
 				B86A6BCE239E693A004AFC5F /* AppDelegate.swift in Sources */,

@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-320.08928571428572"/>
         </scene>
-        <!--Statistique-->
+        <!--Statistiques-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="StatsViewController" customModule="myHabits" sceneMemberID="viewController">
@@ -107,25 +107,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Semaine 32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-G4-Fwi">
-                                <rect key="frame" x="155" y="126" width="104" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semaine 32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-G4-Fwi">
+                                <rect key="frame" x="155" y="128" width="104" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVx-0o-XC7" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="80" y="248" width="255" height="277"/>
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVx-0V-0XM">
+                                <rect key="frame" x="190" y="182" width="34.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3O-Tc-alc">
+                                <rect key="frame" x="186" y="228" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R56-if-1Mn">
+                                <rect key="frame" x="186" y="259" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKC-hI-SCv" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="625" width="374" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iVx-0V-0XM" firstAttribute="top" secondItem="fQY-G4-Fwi" secondAttribute="bottom" constant="30" id="4S0-pi-8af"/>
+                            <constraint firstItem="fQY-G4-Fwi" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="40" id="Jsk-Z1-ny7"/>
+                            <constraint firstItem="w3O-Tc-alc" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="N4g-2t-WZd"/>
+                            <constraint firstItem="iVx-0V-0XM" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="YtA-pV-2ai"/>
+                            <constraint firstItem="R56-if-1Mn" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="eKP-zc-SeW"/>
+                            <constraint firstItem="R56-if-1Mn" firstAttribute="top" secondItem="w3O-Tc-alc" secondAttribute="bottom" constant="10" id="qfP-yF-tkd"/>
+                            <constraint firstItem="w3O-Tc-alc" firstAttribute="top" secondItem="iVx-0V-0XM" secondAttribute="bottom" constant="25" id="vIT-mb-4VG"/>
+                            <constraint firstItem="fQY-G4-Fwi" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="zD7-Q1-GGs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Statistique" id="lya-pe-AjY"/>
+                    <navigationItem key="navigationItem" title="Statistiques" id="lya-pe-AjY"/>
                     <connections>
+                        <outlet property="barChartView" destination="pKC-hI-SCv" id="rr6-qR-rDG"/>
+                        <outlet property="dateLabel" destination="iVx-0V-0XM" id="5xi-g4-bGP"/>
+                        <outlet property="doneLabel" destination="R56-if-1Mn" id="xnq-Yn-Efg"/>
                         <outlet property="pieChartView" destination="CVx-0o-XC7" id="lXb-XE-qI7"/>
+                        <outlet property="totalLabel" destination="w3O-Tc-alc" id="eLn-ZE-B8a"/>
                         <outlet property="weekLabel" destination="fQY-G4-Fwi" id="IXk-kO-cby"/>
                     </connections>
                 </viewController>
@@ -263,11 +299,11 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
-        <!--Stats-->
+        <!--Statistiques-->
         <scene sceneID="auz-DN-g3n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yzf-NL-iva" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stats" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Statistiques" image="second" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n9M-e2-FpJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

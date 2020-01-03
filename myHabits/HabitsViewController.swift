@@ -50,10 +50,10 @@ class HabitTableViewCell: UITableViewCell {
 class HabitsViewController: UITableViewController {
     
     var categoriesColor: [String : UIColor] = [
-        "Sport": UIColor(red: CGFloat(0.8), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Relaxation": UIColor(red: CGFloat(0.1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Cours": UIColor(red: CGFloat(0.1), green: CGFloat(0.4), blue: CGFloat(0.8), alpha: CGFloat(1)),
-        "Rangement": UIColor(red: CGFloat(0.5), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1)),
+        "Sport": UIColor(red: 0.01, green: 0.76, blue: 0.60, alpha: 1.0),
+        "Relaxation": UIColor(red: 0.01, green: 0.50, blue: 0.55, alpha: 1.0),
+        "Cours": UIColor(red: 0.02, green: 0.40, blue: 0.56, alpha: 1.0),
+        "Rangement": UIColor(red: 0.94, green: 0.95, blue: 0.74, alpha: 1.0),
     ]
     
     var habits: [Habit] = Habit.selectedHabits(cursor: Date())
