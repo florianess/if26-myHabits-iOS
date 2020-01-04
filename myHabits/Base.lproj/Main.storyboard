@@ -284,7 +284,7 @@
         <scene sceneID="FdD-Wp-6u2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KBn-3E-DMP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accueil" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Accueil" image="home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7rf-TE-En3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -303,7 +303,7 @@
         <scene sceneID="auz-DN-g3n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yzf-NL-iva" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistiques" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Statistiques" image="stats" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n9M-e2-FpJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -320,7 +320,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
+        <image name="stats" width="30" height="30"/>
     </resources>
 </document>
